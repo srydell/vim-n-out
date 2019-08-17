@@ -1,6 +1,6 @@
 # Vim-N-Out #
 
-Vim-N-Out takes the heavy lifting out of detouring your workflow to open a config file, make a small change and saving and quitting that file. Could that really be easier than what it already is? Lets see!
+Vim-N-Out takes the heavy lifting out of detouring your workflow to open a file, make a small change and saving and quitting that file. Could that really be easier than what it already is? Lets see!
 
 ## Usage ##
 
@@ -10,15 +10,15 @@ Vim-N-Out only provides one command, `VimNOut`, and its pretty simple:
 VimNOut edit ~/.vim/ftplugin/{filetype}.vim
 ```
 
-This will open the `ftplugin` file for your current `filetype`. If you now edit that buffer and move away from it (edit another file, or just quit), `VimNOut` will save and close that file.
+This will open the `ftplugin` file for your current `filetype`. If you now edit that buffer and move away from it (edit another file, `:bnext`, or just quit), `VimNOut` will save and close that file.
 
 `VimNOut` uses a filter system (you just saw the `{filetype}` filter) to expand what you want to edit. The available filters are:
 
-* {filetype}, expanded to the current filetype
-* {compiler}, expanded to `b:current_compiler`
-* {files}, expanded to all the files in the supplied directory
+* `{filetype}`, expanded to the current filetype
+* `{compiler}`, expanded to `b:current_compiler`
+* `{files}`, expanded to all the files in the supplied directory
 
-It's also pretty stupid (a good thing!) and does not try to guess what you mean. When there are multiple filetypes (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose:
+It's also pretty stupid (in a good way) and does not try to guess what you mean. When there are multiple filetypes for example (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose:
 
 ![Filetype filter](https://imgur.com/GzozKt0.png "Filetype filter")
 
