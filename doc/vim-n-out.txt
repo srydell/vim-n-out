@@ -1,0 +1,76 @@
+vim-n-out.txt* vim-n-out When you just want to edit and get out
+
+Author:  Simon Rydell <https://simonrydell.xyz>
+Repo:    https://github.com/srydell/vim-n-out
+License: Same terms as Vim itself (see |license|)
+
+SETUP                                           *vim-n-out-setup*
+
+Vim-N-Out only provides one command, `VimNOut`, and its pretty simple:
+
+>
+        VimNOut edit ~/.vim/ftplugin/{filetype}.vim
+<
+
+This will open the `ftplugin` file for your current `filetype`. If you now edit that buffer and move away from it (edit another file, or just quit), `VimNOut` will save and close that file.
+
+`VimNOut` uses a filter system (you just saw the `{filetype}` filter) to expand what you want to edit. The available filters are:
+
+* {filetype}, expanded to the current filetype
+* {compiler}, expanded to `b:current_compiler`
+* {files}, expanded to all the files in the supplied directory
+
+It's also pretty stupid (a good thing!) and does not try to guess what you mean. When there are multiple filetypes (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose. You can even use multiple filters in one command!
+
+By default, `VimNOut` uses [`fzf`](https://github.com/junegunn/fzf#as-vim-plugin) for autocompletion, but if it's not installed it will fall back to using vims builtin autocompletion.
+
+EXAMPLES                                           *vim-n-out-examples*
+
+`VimNOut` doesn't provide any default mappings, so to get your imagination flowing:
+>
+        " All mappings start with <leader>e for edit
+        nnoremap <leader>ev :VimNOut edit ~/.vim/vimrc<CR>
+        nnoremap <leader>et :VimNOut edit ~/.tmux.conf<CR>
+
+        nnoremap <leader>ef :VimNOut edit ~/.vim/ftplugin/{filetype}.vim<CR>
+        nnoremap <leader>eaf :VimNOut edit ~/.vim/after/ftplugin/{filetype}.vim<CR>
+        nnoremap <leader>exf :VimNOut edit ~/.vim/ftplugin/{filetype}/{files}<CR>
+        nnoremap <leader>eap :VimNOut edit ~/.vim/plugin/{files}<CR>
+
+        nnoremap <leader>es :VimNOut UltiSnipsEdit {filetype}<CR>
+        nnoremap <leader>ec :VimNOut edit ~/.vim/compiler/{compiler}.vim<CR>
+<
+
+OPTIONS                                          *vim-n-out-options*
+
+                                                 *g:vimnout_delete_on_leave*
+
+If you don't want `VimNOut` to delete and save the buffer on leave, just put
+>
+        let g:vimnout_delete_on_leave = 0
+<
+in your `vimrc`.
+
+COMMANDS                                          *vim-n-out-commands*
+
+                                                  *vim-n-out-:VimNOut*
+
+:VimNOut {command}               Run {command} with *vim-n-out-filters.*
+
+FILTERS                                          *vim-n-out-filters*
+
+{filtype}                        Exchanged for the `&filetype`, multiple
+                                 filetypes are separated by a dot `.`(e.g. `html.django`)
+
+{compiler}                       Exchanged for the `b:current_compiler` 
+
+{files}                          If the {command}, when split by whitespace,
+                                 contains one entry on as `/path/to/`{files}
+                                 and `/path/to` is a directory, then {files}
+                                 will be exchanged for the files in that directory.
+
+CREDITS                                           *vim-n-out-credits*
+
+Distributed under the same terms as Vim itself (see |license|)
+
+vim:tw=78:et:ft=help:norl:
