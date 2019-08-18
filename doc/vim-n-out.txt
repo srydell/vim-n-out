@@ -57,20 +57,22 @@ COMMANDS                                          *vim-n-out-commands*
 
 :VimNOut {command}               Run {command} with *vim-n-out-filters.*
 
-FILTERS                                          *vim-n-out-filters*
+FILTERS                                           *vim-n-out-filters*
 
-{filtype}                        Exchanged for the `&filetype`, multiple
-                                 filetypes are separated by a dot `.`(e.g. `html.django`)
+                                                  *vim-n-out-{filetype}*
+{filtype} ~
+        Exchanged for the `&filetype`, multiple
+        filetypes are separated by a dot `.` (e.g. `javascript.vue`)
 
-{compiler}                       Exchanged for the `b:current_compiler` 
+                                                  *vim-n-out-{compiler}*
+{compiler} ~
+        Exchanged for the `b:current_compiler` 
 
-{files}                          If the {command}, when split by whitespace,
-                                 contains one entry on as `/path/to/`{files}
-                                 and `/path/to` is a directory, then {files}
-                                 will be exchanged for the files in that directory.
-
-CREDITS                                           *vim-n-out-credits*
-
-Distributed under the same terms as Vim itself (see |license|)
+                                                  *vim-n-out-{files}*
+{files} ~
+        If the {command}, when split by whitespace,
+        contains one entry on as `/path/to/`{files}
+        and `/path/to` is a directory, then {files}
+        will be exchanged for the files in that directory.
 
 vim:tw=78:et:ft=help:norl:

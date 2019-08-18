@@ -10,7 +10,7 @@ Vim-N-Out only provides one command, `VimNOut`, and its pretty simple:
 VimNOut edit ~/.vim/ftplugin/{filetype}.vim
 ```
 
-This will open the `ftplugin` file for your current `filetype`. If you now edit that buffer and move away from it (edit another file, `:bnext`, or just quit), `VimNOut` will save and close that file.
+This will open the `ftplugin` file for your current `filetype`. If you now edit that buffer and move away from it (edit another file, hide the buffer, or just quit), `VimNOut` will save and close that file.
 
 `VimNOut` uses a filter system (you just saw the `{filetype}` filter) to expand what you want to edit. The available filters are:
 
