@@ -117,9 +117,9 @@ function! s:GetAutocompletedCommand(possibleCommands) abort
     " Fallback to inputlist when fzf is not available
 
     " Local function to provide autocompletions
-    let g:editConfigCurrentAutcompleteCommands = a:possibleCommands
+    let g:vimNOutConfigCurrentAutcompleteCommands = a:possibleCommands
     function! ListCommands(ArgLead, CmdLine, CursorPos) abort
-      return g:editConfigCurrentAutcompleteCommands
+      return g:vimNOutConfigCurrentAutcompleteCommands
     endfunction
 
     call inputsave()
@@ -129,7 +129,7 @@ function! s:GetAutocompletedCommand(possibleCommands) abort
     call inputrestore()
 
     " Lets not clutter
-    unlet g:editConfigCurrentAutcompleteCommands
+    unlet g:vimNOutConfigCurrentAutcompleteCommands
   endif
 
   return l:command
