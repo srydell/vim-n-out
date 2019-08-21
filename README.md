@@ -1,6 +1,6 @@
-# `Vim-N-Out` #
+# Vim-N-Out #
 
-`Vim-N-Out` takes the heavy lifting out of detouring your workflow to open a file, make a small change and saving and quitting that file. Could we really make that easier than what it already is?
+Vim-N-Out takes the heavy lifting out of detouring your workflow to open a file, make a small change and saving and quitting that file. Could we really make that easier than what it already is?
 
 ## Usage ##
 
