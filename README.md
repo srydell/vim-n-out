@@ -1,24 +1,38 @@
-# Vim-N-Out #
+# `Vim-N-Out` #
 
-Vim-N-Out takes the heavy lifting out of detouring your workflow to open a file, make a small change and saving and quitting that file. Could that really be easier than what it already is? Lets see!
+`Vim-N-Out` takes the heavy lifting out of detouring your workflow to open a file, make a small change and saving and quitting that file. Could we really make that easier than what it already is?
 
 ## Usage ##
 
 Vim-N-Out only provides one command, `VimNOut`, and its pretty simple:
 
 ```vim
+VimNOut edit todo.md
+```
+
+This will do two things:
+
+* Open a new buffer with `todo.md`
+
+* Set an `autocmd` so that when you leave `todo.md`, it will save that buffer (unless it's empty)
+
+This allows you to quickly edit `todo.md` and get out, no need to save the buffer or have it in your `buffer list`.
+
+Well, that you can still do that by hand. The real power comes from using the filter system built into `VimNOut`.
+
+```vim
 VimNOut edit ~/.vim/ftplugin/{filetype}.vim
 ```
 
-This will open the `ftplugin` file for your current `filetype`. If you now edit that buffer and move away from it (edit another file, hide the buffer, or just quit), `VimNOut` will **save and close that buffer**.
+This will replace the token `{filetype}` with your current filetype, and then do the same as for `todo.md`.
 
-`VimNOut` uses a filter system (you just saw the `{filetype}` filter) to expand what you want to edit. The available filters are:
+`VimNOut` has a multiple filters that you can pick and choose from:
 
-* `{filetype}`, expanded to the current filetype
-* `{compiler}`, expanded to `b:current_compiler`
+* `{filetype}`, expanded to the current filetype.
+* `{compiler}`, expanded to `b:current_compiler`.
 * `{files}`, expanded to all the files in the supplied directory
 
-It's also pretty stupid (in a good way) and does not try to guess what you mean. When there are multiple filetypes for example (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose:
+It's also pretty stupid (in a good way) and does not try to guess what you mean. When there are multiple `filetypes` for example (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose:
 
 ![Filetype filter](https://imgur.com/GzozKt0.png "Filetype filter")
 
@@ -37,11 +51,15 @@ By default, `VimNOut` uses [`fzf`](https://github.com/junegunn/fzf#as-vim-plugin
 nnoremap <leader>ev :VimNOut edit ~/.vim/vimrc<CR>
 nnoremap <leader>et :VimNOut edit ~/.tmux.conf<CR>
 
+" Using the {filetype} filter
 nnoremap <leader>ef :VimNOut edit ~/.vim/ftplugin/{filetype}.vim<CR>
 nnoremap <leader>eaf :VimNOut edit ~/.vim/after/ftplugin/{filetype}.vim<CR>
+nnoremap <leader>es :VimNOut UltiSnipsEdit {filetype}<CR>
+
+" Using the {files} filter
 nnoremap <leader>eap :VimNOut edit ~/.vim/plugin/{files}<CR>
 
-nnoremap <leader>es :VimNOut UltiSnipsEdit {filetype}<CR>
+" Using the {compiler} filter
 nnoremap <leader>ec :VimNOut edit ~/.vim/compiler/{compiler}.vim<CR>
 ```
 
