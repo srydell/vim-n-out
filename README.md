@@ -14,9 +14,9 @@ This will do two things:
 
 * Open a new buffer with `todo.md`
 
-* Set an `autocmd` so that when you leave `todo.md`, it will save that buffer (unless it's empty)
+* Set an `autocmd` so that when you leave `todo.md`, it will save and delete that buffer (unless it's empty)
 
-This allows you to quickly edit `todo.md` and get out, no need to save the buffer or have it in your `buffer list`.
+This allows you to quickly edit `todo.md` and get out, no need to save and delete the buffer or have it in your `buffer list`.
 
 Well, that you can still do that by hand. The real power comes from using the **filter system** built into `VimNOut`.
 
