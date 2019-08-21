@@ -18,7 +18,7 @@ This will do two things:
 
 This allows you to quickly edit `todo.md` and get out, no need to save the buffer or have it in your `buffer list`.
 
-Well, that you can still do that by hand. The real power comes from using the filter system built into `VimNOut`.
+Well, that you can still do that by hand. The real power comes from using the **filter system** built into `VimNOut`.
 
 ```vim
 VimNOut edit ~/.vim/ftplugin/{filetype}.vim
