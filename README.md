@@ -12,7 +12,7 @@ VimNOut edit todo.md
 
 This will do two things:
 
-* Open a new buffer with `todo.md`
+* Open a new buffer with `todo.md` by running `execute('edit todo.md')`
 
 * Set an `autocmd` so that when you leave `todo.md`, it will save and delete that buffer (unless it's empty)
 
