@@ -26,21 +26,21 @@ VimNOut edit ~/.vim/ftplugin/{filetype}.vim
 
 This will replace the token `{filetype}` with your current filetype, and then do the same as for `todo.md`.
 
+It's also pretty stupid (in a good way) and does not try to guess what you mean. When there are multiple `filetypes` for example (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose:
+
+![Filetype filter](https://imgur.com/GzozKt0.png "Filetype filter")
+
+By default, `VimNOut` uses [`fzf`](https://github.com/junegunn/fzf#as-vim-plugin) for autocompletion, but if it's not installed it will fall back to using vims builtin autocompletion.
+
 `VimNOut` has a multiple filters that you can pick and choose from:
 
 * `{filetype}`, expanded to the current filetype.
 * `{compiler}`, expanded to `b:current_compiler`.
 * `{files}`, expanded to all the files in the supplied directory
 
-It's also pretty stupid (in a good way) and does not try to guess what you mean. When there are multiple `filetypes` for example (separated by a dot `.`), `VimNOut` will simply give you an autocomplete prompt and let you choose:
-
-![Filetype filter](https://imgur.com/GzozKt0.png "Filetype filter")
-
-And you can even use multiple filters in one command!
+You can even use multiple filters in one command, resulting in a growing number of possibilities:
 
 ![Multiple filters](https://imgur.com/1ZWNmIm.png "Multiple filters")
-
-By default, `VimNOut` uses [`fzf`](https://github.com/junegunn/fzf#as-vim-plugin) for autocompletion, but if it's not installed it will fall back to using vims builtin autocompletion.
 
 ## Example mappings ##
 
