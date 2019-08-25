@@ -4,7 +4,7 @@ Vim-N-Out takes the heavy lifting out of detouring your workflow to open a file,
 
 ## Usage ##
 
-Vim-N-Out only provides one command, `VimNOut`, and its pretty simple:
+Vim-N-Out only provides one command, `VimNOut`, and it's pretty simple:
 
 ```vim
 VimNOut edit todo.md
